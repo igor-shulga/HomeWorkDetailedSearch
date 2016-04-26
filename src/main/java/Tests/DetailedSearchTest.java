@@ -33,7 +33,7 @@ public class DetailedSearchTest extends BaseTest {
         ourTeamPage.openOurTeamPage();
         ourTeamPage.openCoachPersonalPage(coach);
         assertTrue(coach + " not found ", personalPage.showsName(coach));
-        assertTrue(coach + " specialisation not found ", personalPage.showsSpecialisation(specialisationOf(coach)));
+        assertTrue("Unexpected specialisation", personalPage.showsSpecialisation(getSpecialisation(coach)));
 
 
     }
@@ -47,14 +47,14 @@ public class DetailedSearchTest extends BaseTest {
         ourTeamPage.openOurTeamPage();
         ourTeamPage.openCoachPersonalPage(coach);
         assertTrue(coach + " not found ", personalPage.showsName(coach));
-        assertTrue(coach + " specialisation not found ", personalPage.showsSpecialisation(specialisationOf(coach)));
+        assertTrue("Unexpected specialisation", personalPage.showsSpecialisation(getSpecialisation(coach)));
 
     }
 
 
 // enum coming soon
 
-    public String specialisationOf(String coachName) {
+    public String getSpecialisation(String coachName) {
         Map<String, String> Map = new HashMap<String, String>();
         Map.put("Артем Карпов", "QA Automation");
         Map.put("Михаил Чокан", "Координатор");
